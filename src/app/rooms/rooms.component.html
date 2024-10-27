@@ -1,16 +1,23 @@
-<p [ngStyle]="{'color':'orange'}">Welcome to {{hotelName}}</p>
+<!-- <p [ngStyle]="{'color':'orange'}">Welcome to {{hotelName}}</p> -->
+<app-header></app-header>
 <div [hidden]="hideRooms">
-    <div [textContent]="msg"></div>
+  <div [textContent]="msg"></div>
 </div>
 
 <div *ngIf="selectedRoom">
-    {{selectedRoom | json}}
+  {{ selectedRoom | json }}
 </div>
 <!-- {{rooms?.availableRooms ?? 'No rooms'}} -->
+
+<div>
+  <button (click)="addRoom()">Add Room</button>
+</div>
 <div *ngIf="rooms?.availableRooms" class="table">
-    <app-rooms-list [rooms] = "roomsList"
+  <app-rooms-list
+    [rooms]="roomsList"
+    [allRoom]="allRoom"
     (selectedRoom)="selectRoom($event)"
-    ></app-rooms-list>
+  ></app-rooms-list>
 </div>
 
-<button (click)="toggle()" >Toggle</button>
+<button (click)="toggle()">Toggle</button>
