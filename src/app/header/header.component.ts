@@ -14,5 +14,5 @@ export class HeaderComponent implements OnInit{
     
   }
 
-  title:string = 'This is my title'
+  title:string = 'This is my default title'
 }
